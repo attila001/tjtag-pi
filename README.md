@@ -4,6 +4,9 @@ which eliminates the need for a PC with parallel port.
 For Pi3, compile it with:
         $ make pi3
 
+For Pi4, compile it with:
+        $ make pi4
+
 WARNING
 =======
 

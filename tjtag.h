@@ -104,12 +104,17 @@ kseg2   0xc0000000 - 0xffffffff  kernel-virtual,  mapped
    #define TDO     23
 
    // --- Pi GPIO ---
-   #ifdef RASPPI3
-      #define BCM2837_PERI_BASE  0x3F000000
-      #define GPIO_BASE          (BCM2837_PERI_BASE + 0x200000) /* GPIO controller */
-   #else
-      #define BCM2708_PERI_BASE  0x20000000
-      #define GPIO_BASE          (BCM2708_PERI_BASE + 0x200000) /* GPIO controller */
+    #ifdef RASPPI4
+      #define BCM2711_PERI_BASE  0xFE000000
+      #define GPIO_BASE          (BCM2711_PERI_BASE + 0x200000) /* GPIO controller */
+    #else
+      #ifdef RASPPI3
+         #define BCM2837_PERI_BASE  0x3F000000
+         #define GPIO_BASE          (BCM2837_PERI_BASE + 0x200000) /* GPIO controller */
+      #else
+         #define BCM2708_PERI_BASE  0x20000000
+         #define GPIO_BASE          (BCM2708_PERI_BASE + 0x200000) /* GPIO controller */
+      #endif
    #endif
    #define PAGE_SIZE          (4 * 1024)
    #define BLOCK_SIZE         (4 * 1024)
